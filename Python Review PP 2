@@ -1,0 +1,182 @@
+# 1. Print a Greeting Message
+# Write a Python function that returns "Hello, World!" to the console.
+Print("Hello, World")
+# 2. Simple Arithmetic
+# Create a function that takes two numbers as input from the user and returns their sum, difference, product, and quotient.
+# Example Input:
+# Enter first number: 8
+# Enter second number: 4
+# Example Output:
+# Sum: 12
+# Difference: 4
+# Product: 32
+# Quotient: 2.0
+def arithmetic():
+    first_num = int(input("Enter first number: "))
+    second_num = int(input("Enter second number: "))
+    print("Sum: ", str(first_num + second_num))
+    print("Difference: ", str(first_num - second_num))
+    print("Product: ", str(first_num * second_num))
+    print("Quotient: ", str(first_num / second_num))
+# 3. Check Even or Odd
+# Write a Python function that checks whether a given number is even or odd.
+# Example Input:
+# Enter a number: 7
+# Example Output:
+# The number 7 is odd.
+
+def evenOdd(n):
+    if(n==0):
+        return True
+    elif(n==1):
+        return False
+    else:
+        return evenOdd(n-2)
+       
+userinput = int(input("Enter a number: "))
+if(evenOdd(userinput)):
+    print(userinput,"num is even")
+else:
+    print(userinput,"num is odd")
+
+# 4. Find the Maximum of Three Numbers
+# Write a function that takes three numbers as input and returns the maximum of the three.
+# Example Input:
+# Enter three numbers: 3 7 5
+# Example Output:
+# The maximum number is 7.
+def maximum(num1, num2, num3):
+    list = [num1, num2, num3]
+    return max(list)
+    
+num1 = int(input("Enter a numbers: "))
+num2 = int(input("Enter a numbers: "))
+num3 = int(input("Enter a numbers: "))
+print(maximum(num1, num2, num3))
+
+# 5. Reverse a String
+# Write a Python function that takes a string as input and returns the reverse of the string.
+# Example Input:
+# Enter a string: python
+# Example Output:
+# Reversed string: nohtyp
+def reverse(string):
+    string = list(string)
+    string.reverse()
+    return "".join(string)
+
+userinput = input("Enter a string: ")
+
+print("The original string: ", userinput)
+
+print("The reversed string: ", reverse(userinput))
+# 6. Sum of Natural Numbers
+# Create a function that calculates the sum of all natural numbers up to a given number n.
+# Example Input:
+# Enter a number: 5
+# Example Output:
+
+# Sum of natural numbers up to 5 is 15.
+def findS(num):
+    _sum = 0
+    i = 1
+    while(_sum < num):
+        _sum += i
+        if _sum == num:
+            return i
+        i += 1
+ 
+    return -1
+ 
+num = int(input("Enter a number: "))
+print(findS(num))
+# 7. Count Vowels in a String
+# Write a function that counts the number of vowels (a, e, i, o, u) in a given string.
+# Example Input:
+
+# Enter a string: hello world
+# Example Output:
+
+# Number of vowels: 3
+def vowels_in_string():
+    string_vowels = input("Enter a string: ")
+    vowels = "aeiouAEIOU"
+    counter = 0
+    for letters in string_vowels:
+        if vowels in string_vowels:
+            counter += 1
+    print("Number of vowels: ", str(counter))
+
+# 8. List of Squares
+# Write a function that takes a number n and returns a list of squares of numbers from 1 to n.
+# Example Input:
+
+# Enter a number: 4
+# Example Output:
+
+# [1, 4, 9, 16]
+def squaresum(n):
+    sm = 0
+    for i in range(1, n+1):
+        sm = sm + (i * i)
+
+    return sm
+n = int(input("Enter a number"))
+print(squaresum(n))
+# 9. Check Palindrome
+# Create a function that checks if a given string is a palindrome (reads the same backward as forward).
+# Example Input:
+
+# Enter a string: radar
+# Example Output:
+def palindrome():
+    input_string1 = input("Enter a string: ")
+    palindrome_checker = input_string1[::-1]
+    if palindrome == input_string1:
+        print("The string ", input_string1, "is a palindrome")
+    else:
+        print(("The string ", input_string1, "is not a palindrome")
+
+# The string 'radar' is a palindrome.
+# 10. FizzBuzz
+# Write a Python function that returns the numbers from 1 to 20. But for multiples of three, print "Fizz" instead of the number, and for the multiples of five, print "Buzz". For numbers which are multiples of both three and five, print "FizzBuzz".
+# Example Output:
+
+# 1
+# 2
+# Fizz
+# 4
+# Buzz
+# Fizz
+# 7
+# 8
+# Fizz
+# Buzz
+# 11
+# Fizz
+# 13
+# 14
+# FizzBuzz
+# 16
+# 17
+# Fizz
+# 19
+# Buzz
+def fizz_buzz(n): 
+	result = [] 
+	for i in range(1, n + 1): 
+		if i % 3 == 0 and i % 5 == 0: 
+			result.append("FizzBuzz") 
+		elif i % 3 == 0: 
+			result.append("Fizz") 
+		elif i % 5 == 0: 
+			result.append("Buzz") 
+		else: 
+			result.append(str(i)) 
+	return result 
+
+n = int(input("Enter a number: "))
+
+result = fizz_buzz(n) 
+print(' '.join(result))
+# These challenges are designed to help students practice basic Python concepts such as input/output, loops, conditionals, string manipulation, and simple arithmetic.
