@@ -1,0 +1,162 @@
+# Assignment 2.5
+
+# For each of the below problems:
+#   a. solve the problem by writing a function that returns the desired output and 
+#   b. write a test function in test_assignments2_5.py that tests the function with multiple test cases. Use pytest to run the test functions.
+
+### **Module Creation and Usage Problems**
+
+#### Problem 1: Basic Calculator Module
+# - Create a module called `calculator` with the following functions:
+#   - `add(a, b)` – returns the sum of `a` and `b`.
+#   - `subtract(a, b)` – returns the result of subtracting `b` from `a`.
+#   - `multiply(a, b)` – returns the product of `a` and `b`.
+#   - `divide(a, b)` – returns the result of dividing `a` by `b`, but return "Cannot divide by zero" if `b == 0`.
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return "Cannot divide by zero"
+    return a / b
+def test_add():
+    assert calculator.add(1, 2) == 3
+    assert calculator.add(-1, -2) == -3
+
+def test_subtract():
+    assert calculator.subtract(5, 3) == 2
+    assert calculator.subtract(10, 10) == 0
+
+def test_multiply():
+    assert calculator.multiply(3, 4) == 12
+    assert calculator.multiply(-2, 5) == -10
+
+def test_divide():
+    assert calculator.divide(10, 2) == 5
+    assert calculator.divide(10, 0) == "Cannot divide by zero"
+#### Problem 2: Greeting Module
+# - Create a module called `greetings` with a function `greet(name)` that returns a greeting message like `"Hello, <name>!"`.
+# - Test the module by importing it and printing the greeting for the name `"Alice"`.
+def greet(name):
+    return f"Hello, {name}!"
+def test_greet():
+    assert greetings.greet("Alice") == "Hello, Alice!"
+    assert greetings.greet("Bob") == "Hello, Bob!"
+#### Problem 3: Temperature Conversion Module
+# - Create a module called `temperature` with the following functions:
+#   - `celsius_to_fahrenheit(celsius)` – converts Celsius to Fahrenheit.
+#   - `fahrenheit_to_celsius(fahrenheit)` – converts Fahrenheit to Celsius.
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+    
+def test_celsius_to_fahrenheit():
+    assert temperature.celsius_to_fahrenheit(0) == 32
+    assert temperature.celsius_to_fahrenheit(100) == 212
+
+def test_fahrenheit_to_celsius():
+    assert temperature.fahrenheit_to_celsius(32) == 0
+    assert temperature.fahrenheit_to_celsius(212) == 100
+#### Problem 4: Rectangle Geometry Module
+# - Create a module called `geometry` with the following functions:
+#   - `area_of_rectangle(length, width)` – returns the area of a rectangle.
+#   - `perimeter_of_rectangle(length, width)` – returns the perimeter of a rectangle.
+  
+### **`datetime` Module Problems**
+def area_of_rectangle(length, width):
+    return length * width
+
+def perimeter_of_rectangle(length, width):
+    return 2 * (length + width)
+    
+def test_area_of_rectangle():
+    assert geometry.area_of_rectangle(5, 3) == 15
+    assert geometry.area_of_rectangle(7, 2) == 14
+
+def test_perimeter_of_rectangle():
+    assert geometry.perimeter_of_rectangle(5, 3) == 16
+    assert geometry.perimeter_of_rectangle(7, 2) == 18
+#### Problem 5: Get Current Date and Time
+# - Write a function called `get_current_datetime()` that returns the current date and time using the `datetime` module.
+import datetime
+def get_current_datetime():
+    return datetime.datetime.now()
+def test_get_current_datetime():
+    assert isinstance(get_current_datetime(), datetime.datetime)
+#### Problem 6: Format Date and Time
+# - Write a function called `format_datetime()` that takes a `datetime` object and returns it as a string in the format `"YYYY-MM-DD HH:MM:SS"`.
+#   - Example: `format_datetime(datetime.datetime(2024, 9, 11, 14, 30, 0))` should return `"2024-09-11 14:30:00"`.
+import datetime
+def format_datetime(dt):
+    return dt.strftime("%Y-%m-%d %H:%M:%S")
+    
+def test_format_datetime():
+    dt = datetime.datetime(2024, 9, 11, 14, 30, 0)
+    assert format_datetime(dt) == "2024-09-11 14:30:00"    
+#### Problem 7: Calculate Days Until New Year
+# - Write a function called `days_until_new_year()` that calculates and returns the number of days between today and the next New Year's Day (`January 1` of the next year).
+import datetime
+def days_until_new_year():
+    today = datetime.date.today()
+    next_new_year = datetime.date(today.year + 1, 1, 1)
+    return (next_new_year - today).days
+
+def test_days_until_new_year():
+    days = days_until_new_year()
+    assert isinstance(days, int)
+    assert days > 0
+#### Problem 8: Check Leap Year
+# - Write a function called `is_leap_year(year)` that returns `True` if the given year is a leap year, and `False` otherwise.
+#   - Hint: Use `datetime.date(year, 2, 29)` to determine if the year has a February 29th.
+
+### **Module + `datetime` Problems**
+import datetime
+def is_leap_year(year):
+    try:
+        datetime.date(year, 2, 29)
+        return True
+    except ValueError:
+        return False
+
+def test_is_leap_year():
+    assert is_leap_year(2024) == True
+    assert is_leap_year(2023) == Fals
+#### Problem 9: Birthday Calculator Module
+# - Create a module called `birthday` with a function `days_until_birthday(birthday_date)` that takes a `datetime.date` object for the user's birthday and returns how many days are left until their next birthday.
+import datetime
+
+def days_until_birthday(birthday_date):
+    today = datetime.date.today()
+    next_birthday = birthday_date.replace(year=today.year)
+    
+    if next_birthday < today:
+        next_birthday = next_birthday.replace(year=today.year + 1)
+    
+    return (next_birthday - today).days
+
+def test_days_until_birthday():
+    birthday_date = datetime.date(2024, 9, 15)
+    days_left = birthday.days_until_birthday(birthday_date)
+    assert isinstance(days_left, int)
+    assert days_left >= 0
+#### Problem 10: Timed Event Tracker Module
+# - Create a module called `event_tracker` with a function `time_until_event(event_time)` that takes a `datetime.datetime` object for a future event and returns how many hours and minutes are left until that event.
+import datetime
+def time_until_event(event_time):
+    now = datetime.datetime.now()
+    time_diff = event_time - now
+    return divmod(time_diff.total_seconds(), 3600)  # Returns (hours, minutes)
+
+def test_time_until_event():
+    future_event = datetime.datetime.now() + datetime.timedelta(hours=5, minutes=30)
+    hours, minutes = event_tracker.time_until_event(future_event)
+    assert isinstance(hours, float)
+    assert isinstance(minutes, float)    
