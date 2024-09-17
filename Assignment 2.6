@@ -1,0 +1,165 @@
+# Unit 2 Assignment 6 (Unit 2 Review)
+
+# 1. Write a function called 'double_number' that takes an integer and returns double its value.
+def double_number():
+    int = 5
+    double = int + int
+    print(double)
+double_number()
+    
+
+# 2. Write a function called 'is_negative' that takes an integer as input and returns True if the number is negative, otherwise False.
+def is_negative():
+    if num < 0:
+        print("True")
+    else:
+        print("False")
+num = -4
+is_negative()
+
+# 3. Write a function called 'combine_strings' that takes two strings and returns them combined, separated by a space.
+def combine_strings():
+    string1 = "Hello, "
+    string2 = "World!"
+    print(string1 + string2)
+    
+combine_strings()
+# 4. Write a function called 'is_vowel' that takes a single character as input and returns True if the character is a vowel (a, e, i, o, u), otherwise False.
+def vowelOrConsonant(x): 
+    if (x == 'a' or x == 'e' or x == 'i' or x == 'o' or x == 'u'): 
+        print("Vowel") 
+    else: 
+        print("Consonant") 
+  
+vowelOrConsonant('c') 
+vowelOrConsonant('e') 
+
+# 5. Write a function called 'sum_of_squares' that takes a list of numbers and returns the sum of the squares of each number.
+def sum_of_squares():
+    test_list = [3, 5, 7, 9, 11]
+    res = 0
+    for i in test_list:
+        from math import pow
+        res += pow(i, 2)
+    res = int(res)
+    print(str(res))
+    
+sum_of_squares()
+# 6. Write a function called 'count_words' that takes a string and returns the number of words in the string (words are separated by spaces).
+def count_words(s):
+    if not s:
+        return 0
+    count = 0
+    lines = s.split("/")
+    for line in lines:
+        if line.strip():
+            count += 1
+    return count
+
+s = "abc\\p\""
+print("No of words:", count_words(s))
+
+# 7. Write a function called 'reverse_list' that takes a list and returns the list with its elements in reverse order.
+def reverse_list():
+    n = [1,2,3,4,5]
+    n.reverse()
+    print(n)
+    
+reverse_list()    
+
+# 8. Write a function called 'average_of_list' that takes a list of numbers and returns their average.
+def average_of_list(lst):
+    return sum(lst) / len(lst) 
+
+lst = [15, 9, 55, 41, 35, 20, 62, 49] 
+average = average_of_list(lst) 
+
+print(round(average, 2)) 
+
+# 9. Write a function called 'nested_squares' that takes an integer n and prints the square of each number from 1 to n using nested loops. 
+# Example for n=3:
+# 1
+# 4
+# 9
+def nested_squares():
+    for i in range(1, n):
+        square = i * i
+        print(square, end=" ")
+n = 3
+nested_squares()
+
+# 10. Write a function called 'print_multiples' that takes an integer n and prints all multiples of that number from 1 to 10.
+def print_multiples(m, n):
+    a = range(n, (m * n)+1, n)
+    print(*a)
+m = 4
+n = 3
+print_multiples(m, n)
+
+# 11. Write a function called 'compare_numbers' that takes two numbers and returns:
+# "Greater" if the first number is greater, "Lesser" if the first number is less, or "Equal" if they are the same.
+def compare_numbers():
+    if num1 > num2:
+        print("Greater")
+    elif num1 < num2:
+        print("Lesser")
+    else:
+        print("Equal")
+num1 = 4
+num2 = 3
+compare_numbers()
+
+# 12. Write a function called 'is_prime' that takes an integer as input and returns True if the number is prime, otherwise False.
+from math import sqrt
+def is_prime(number,itr):
+  if itr == 1 or itr == 2:
+    return True
+  if number % itr == 0: 
+    return False
+  if is_prime(number,itr-1) == False:
+    return False 
+  return True
+ 
+num = 13
+itr = int(sqrt(num)+1)
+print(is_prime(num,itr))
+# 13. Write a recursive function called 'sum_up_to' that takes an integer n and returns the sum of all integers from 1 to n. 
+# For example, sum_up_to(5) should return 15 (1+2+3+4+5).
+def sum_up_to(n):
+    result = 0
+    for x in range(1, n+1) :
+        result = result + sumOfDigits(x)
+    return result
+    
+def sumOfDigits(x):
+    sum = 0
+    while (x != 0):
+        sum = sum + x % 10
+        x   = x // 10
+    return sum
+
+n = 15
+print(sum_up_to(n))
+# 14. Write a function called 'bitwise_xor' that takes two integers and returns their result after performing a bitwise XOR operation.
+def bitwise_xor(X, Y):
+    range_val = X + Y
+    ans = 0
+    for i in range(1, range_val + 1):
+        for j in range(1, range_val + 1):
+            if (i ^ j) == X and (i & j) == Y:
+                ans = (i | j)
+                break
+    return ans
+
+def main():
+    X = 5
+    Y = 2
+    print(bitwise_xor(X, Y))
+
+if __name__ == "__main__":
+    main()
+# 15. Write a function called 'format_date' that takes a string in the format 'YYYY-MM-DD' and returns it in the format 'MM/DD/YYYY'.
+# Example: format_date('2024-09-12') should return '09/12/2024'.
+def format_date(date_str):
+    year, month, day = date_str.split('-')
+    return f'{month}/{day}/{year}'
