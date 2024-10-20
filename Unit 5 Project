@@ -1,0 +1,29 @@
+#Attack code for Alien.
+def attack(self, human):
+        print(f"Alien attacks {target_human.name} with strength {self.strength}!")
+        human.reduce_health(self.strength)
+
+#Heal code for alien
+def heal(self, amount):
+        self.health += amount
+        print(f"Alien's health is now {self.health}.")
+
+# is_alive code for Alien
+def is_alive(self):
+        return self.health > 0
+
+#__str__ code for Alien
+def __str__(self):
+        return f"{self.name} (Species: {self.species}, Health: {self.health})"
+
+if __name__ == "__main__":
+    human = Human("John", 100)
+    alien = Alien(25)
+# Print alien status
+    print(alien)
+    # Alien attacks the human
+    alien.attack(human)
+  # Alien increases its health
+    alien.heal(20)
+  # Check if the alien is alive
+    print(f"Is the alien alive? {alien.is_alive()}")
